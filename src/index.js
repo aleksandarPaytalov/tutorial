@@ -5,31 +5,30 @@ import "./index.css";
 
 function BookList() {
   return (
-    <article className="booklist">
+    <section className="booklist">
       <Book />
       <Book />
       <Book />
       <Book />
-    </article>
+    </section>
   );
 }
 
+const author = "Jordan Moore";
 const Book = () => {
-  return (
-    <div className="book">
-      <Image />
-      <Title />
-      <Author />
-    </div>
-  );
-};
+  const title = "Wild Card (Deluxe Edition)";
+  const img = "./images/image-1.jpg";
 
-const Image = () => (
-  <img src="./images/image-1.jpg" alt="Wild Card (Deluxe Edition)" />
-);
-const Title = () => <h2>Wild Card (Deluxe Edition)</h2>;
-const Author = () => {
-  return <h4>Rose Hill</h4>;
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+
+      <h4>{author.toUpperCase()} </h4>
+      {/* <p>{let x = 6}</p> */}
+      <p>{6 + 6}</p>
+    </article>
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
