@@ -3,31 +3,45 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
+const firstBook = {
+  img: "./images/image-1.jpg",
+  title: "Wild Card (Deluxe Edition)",
+  author: "Jordan Moore",
+};
+
+const secondBook = {
+  img: "https://m.media-amazon.com/images/I/41J61SNzQmL._UY399_FMwebp_.jpg?aicid=books-design-system-web",
+  title: "How to Test Negative for Stupid",
+  author: "John Kennedy",
+};
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   );
 }
 
-const author = "Jordan Moore";
-const Book = () => {
-  const title = "Wild Card (Deluxe Edition)";
-  const img = "./images/image-1.jpg";
-
+const Book = (bookProps) => {
   return (
-    <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-
-      <h4>{author.toUpperCase()} </h4>
-      {/* <p>{let x = 6}</p> */}
-      <p>{6 + 6}</p>
-    </article>
+    console.log(bookProps),
+    (
+      <article className="book">
+        <img src={bookProps.img} alt={bookProps.title} />
+        <h2>{bookProps.title}</h2>
+        <h4>{bookProps.author} </h4>
+      </article>
+    )
   );
 };
 
