@@ -3,45 +3,38 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-const firstBook = {
-  img: "./images/image-1.jpg",
-  title: "Wild Card (Deluxe Edition)",
-  author: "Jordan Moore",
-};
-
-const secondBook = {
-  img: "https://m.media-amazon.com/images/I/41J61SNzQmL._UY399_FMwebp_.jpg?aicid=books-design-system-web",
-  title: "How to Test Negative for Stupid",
-  author: "John Kennedy",
-};
+const books = [
+  {
+    img: "./images/image-1.jpg",
+    title: "Wild Card (Deluxe Edition)",
+    author: "Jordan Moore",
+    id: 1,
+  },
+  {
+    img: "https://m.media-amazon.com/images/I/41J61SNzQmL._UY399_FMwebp_.jpg?aicid=books-design-system-web",
+    title: "How to Test Negative for Stupid",
+    author: "John Kennedy",
+    id: 2,
+  },
+];
 
 function BookList() {
   return (
     <section className="booklist">
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        author={firstBook.author}
-      >
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-        <button>Click Me</button>
-      </Book>
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        author={secondBook.author}
-      />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
+      ;
     </section>
   );
 }
 
-const Book = ({ img, title, author, children }) => {
+const Book = ({ img, title, author }) => {
   return (
     <article className="book">
       <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author} </h4>
-      {children}
     </article>
   );
 };
