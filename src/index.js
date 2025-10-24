@@ -1,22 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
+import books from "./books";
+import { Book } from "./Book";
 
-const books = [
-  {
-    img: "./images/image-1.jpg",
-    title: "Wild Card (Deluxe Edition)",
-    author: "Jordan Moore",
-    id: 1,
-  },
-  {
-    img: "https://m.media-amazon.com/images/I/41J61SNzQmL._UY399_FMwebp_.jpg?aicid=books-design-system-web",
-    title: "How to Test Negative for Stupid",
-    author: "John Kennedy",
-    id: 2,
-  },
-];
+import "./index.css";
 
 function BookList() {
   const getBookById = (id) => {
@@ -25,25 +13,23 @@ function BookList() {
   };
 
   return (
-    <section className="booklist">
-      {books.map((book) => {
-        return <Book {...book} key={book.id} getBookById={getBookById} />;
-      })}
-      ;
-    </section>
+    <>
+      <h1>Amazon best sellers</h1>
+      <section className="booklist">
+        {books.map((book, index) => {
+          return (
+            <Book
+              {...book}
+              key={book.id}
+              getBookById={getBookById}
+              bookNumber={index}
+            />
+          );
+        })}
+      </section>
+    </>
   );
 }
-
-const Book = ({ img, title, author, getBookById, id }) => {
-  return (
-    <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <button onClick={() => getBookById(id)}>Click me</button>
-      <h4>{author} </h4>
-    </article>
-  );
-};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<BookList />);

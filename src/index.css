@@ -28,8 +28,9 @@ body {
 .book {
   background: #fff;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 3rem;
   text-align: center;
+  position: relative;
 }
 .book img {
   width: 100%;
@@ -45,4 +46,29 @@ body {
   font-size: 0.75rem;
   margin-top: 0.5rem;
   letter-spacing: 2px;
+}
+
+.book button {
+  color: red;
+  padding: 0.3rem 0.9rem;
+  border-radius: 0.5rem;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background: #c35600;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 4rem;
+  text-transform: capitalize;
+  color: rgb(55, 71, 28);
 }
